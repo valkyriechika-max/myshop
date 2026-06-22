@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { margin: 0; background: #050505; color: white; font-family: 'Arial', sans-serif; }
+  
+  /* Навигация с самолетиком */
+  nav { padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+  .logo { font-size: 24px; font-weight: bold; }
+  .logo span { color: #ffcc00; }
+  
+  .tg-badge { display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.05); padding: 8px 20px; border-radius: 50px; border: 1px solid rgba(255, 204, 0, 0.2); text-decoration: none; color: white; transition: 0.3s; }
+  .tg-handle { font-weight: bold; font-size: 0.9rem; color: #ffcc00; }
+  .tg-desc { font-size: 0.7rem; color: #888; display: block; }
+
+  /* Герой-блок с текстом */
+  .hero { text-align: center; padding: 40px 20px; }
+  .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+  .hero p { color: #888; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+  .status-bar { color: #22c55e; font-size: 0.8rem; margin-top: 15px; font-weight: bold; }
+
+  /* Витрина */
+  .shop-grid { display: flex; justify-content: center; gap: 30px; margin-top: 30px; }
+  .card { background: #111; padding: 30px; border-radius: 20px; border: 1px solid #333; cursor: pointer; transition: 0.3s; width: 200px; text-align: center; }
+  .card:hover { border-color: #ffcc00; transform: translateY(-5px); }
+  
+  /* Модалки */
+  .modal-bg { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 999; justify-content: center; align-items: center; }
+  .modal-card { background: #1a1a1a; padding: 30px; border-radius: 30px; border: 2px solid #ffcc00; width: 350px; position: relative; text-align: center; }
+  .x-btn { position: absolute; top: 20px; right: 25px; cursor: pointer; font-size: 30px; }
+  .unit-row { display: flex; justify-content: space-between; background: #222; padding: 12px; margin: 8px 0; border-radius: 12px; cursor: pointer; }
+  .btn-pay { width: 100%; padding: 15px; border: none; border-radius: 10px; background: #ffcc00; font-weight: bold; cursor: pointer; display: block; text-decoration: none; color: black; margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Salt<span>&</span>Honey</div>
+  <a href="https://t.me/SaltAndHoneyShop" class="tg-badge" target="_blank">
+    <div>✈️</div>
+    <div>
+      <span class="tg-handle">@SaltAndHoneyShop</span>
+      <span class="tg-desc">Отзывы, пруфы, товары!</span>
+    </div>
+  </a>
+</nav>
+
+<header class="hero">
+  <h1>Premium Roblox Assets</h1>
+  <p>Добро пожаловать в элитный магазин игровых активов. Мы предоставляем лучшие цены на рынке и мгновенную выдачу товаров для ваших любимых плейсов.</p>
+  <div class="status-bar">● Статус: Онлайн, принимаем заказы 24/7</div>
+</header>
+
+<main class="shop-grid">
+  <div class="card" onclick="openModal('ttd-list')">
+    <div style="font-size: 40px;">🚽</div>
+    <h3>TTD</h3>
+  </div>
+</main>
+
+<div id="ttd-list" class="modal-bg">
+  <div class="modal-card">
+    <span class="x-btn" onclick="closeModal('ttd-list')">&times;</span>
+    <h3>Toilet Tower Defense</h3>
+    <div style="max-height: 350px; overflow-y: auto; padding-right: 10px;">
+      <div class="unit-row" onclick="buyItem('1.000.000 гемов', '39')"><span>1.000.000 гемов</span><span>39 ГРН</span></div>
+      <div class="unit-row" onclick="buyItem('2.000.000 гемов', '79')"><span>2.000.000 гемов</span><span>79 ГРН</span></div>
+      <div class="unit-row" onclick="buyItem('3.000.000 гемов', '115')"><span>3.000.000 гемов</span><span>115 ГРН</span></div>
+      <div class="unit-row" onclick="buyItem('4.000.000 гемов', '150')"><span>4.000.000 гемов</span><span>150 ГРН</span></div>
+      <div class="unit-row" onclick="buyItem('5.000.000 гемов', '180')"><span>5.000.000 гемов</span><span>180 ГРН</span></div>
+      <div class="unit-row" onclick="buyItem('10.000.000 гемов', '350')"><span>10.000.000 гемов</span><span>350 ГРН</span></div>
+      <div class="unit-row" onclick="buyItem('Engineer Cameraman', '749')"><span>Engineer Cameraman</span><span>749 ГРН</span></div>
+      <div class="unit-row" onclick="buyItem('Upgraded Titan Cameraman', '220')"><span>Titan Cameraman</span><span>220 ГРН</span></div>
+      <div class="unit-row" onclick="buyItem('Upgraded Titan Speakerman', '185')"><span>Titan Speakerman</span><span>185 ГРН</span></div>
+      <div class="unit-row" onclick="buyItem('1K Gems Legacy', '100')"><span>1K Gems (Legacy)</span><span>100 ГРН</span></div>
+      <div class="unit-row" onclick="buyItem('10K Gems Legacy', '800')"><span>10K Gems (Legacy)</span><span>800 ГРН</span></div>
+    </div>
+  </div>
+</div>
+
+<div id="buy-modal" class="modal-bg">
+  <div class="modal-card">
+    <span class="x-btn" onclick="closeModal('buy-modal')">&times;</span>
+    <h3 id="item-name">Товар</h3>
+    <a id="tg-link" href="#" class="btn-pay">Оплатить в Telegram</a>
+  </div>
+</div>
+
+<script>
+  function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+  function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+  function buyItem(name, price) {
+    document.getElementById('item-name').innerText = name + " — " + price + " ГРН";
+    document.getElementById('tg-link').href = "https://t.me/TheJustDouma?text=Привет, хочу купить " + name;
+    closeModal('ttd-list'); openModal('buy-modal');
+  }
+</script>
+
+</body>
+</html>
